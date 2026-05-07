@@ -1,0 +1,14 @@
+services:
+  flashpoint:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - /mnt/disk1:/mnt/disk1:ro
+      - /mnt/disk2:/mnt/disk2:ro
+      - flashpoint_data:/data
+    env_file: .env
+
+volumes:
+  flashpoint_data:
